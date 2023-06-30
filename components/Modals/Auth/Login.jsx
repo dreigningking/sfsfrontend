@@ -16,7 +16,7 @@ const Login = () => {
   const openModal = useSelector(state => state.authModal)
   const dispatch = useDispatch()
 
-  const [useLogin, { isLoading }] = useLoginMutation()
+  const [login, { isLoading }] = useLoginMutation()
 
   const { data: user } = useGetUserQuery()
 
@@ -28,7 +28,7 @@ const Login = () => {
   const handleLogin = async (values) => {
     setLoginError('')
 
-    await useLogin(values)
+    await login(values)
       .unwrap()
       .then(res => Cookies.set('user_session', res.token, { expires: 365 }))
       .catch(e => setLoginError(e?.data?.message))

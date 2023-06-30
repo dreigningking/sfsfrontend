@@ -16,7 +16,7 @@ const Register = () => {
   const openModal = useSelector(state => state.authModal)
   const dispatch = useDispatch()
 
-  const [useRegister, { isLoading }] = useRegisterMutation()
+  const [register, { isLoading }] = useRegisterMutation()
 
   const validationSchema = yup.object().shape({
     name: yup.string().required('Your name please').min(2, 'Use a real name'),
@@ -30,7 +30,7 @@ const Register = () => {
   });
 
   const handleRegister = async (values) => {
-    await useRegister(values)
+    await register(values)
       .unwrap()
       .then(res => Cookies.set('user_session', res?.token, { expires: 365 }))
       .catch(e => setRegisterError(e?.data?.message))
