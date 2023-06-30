@@ -1,0 +1,20 @@
+@font-face {
+  font-family: "Avenir Next";
+  src: url('../public/fonts/avenir-next/AvenirNextLTPro-Regular.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+  
+@font-face {
+  font-family: "Avenir Next";
+  src: url('../public/fonts/avenir-next/AvenirNextLTPro-Bold.otf');
+  font-weight: bold;
+  font-style: normal;
+}
+  
+@font-face {
+  font-family: "Avenir Next";
+  src: url('../public/fonts/avenir-next/AvenirNextLTPro-It.otf');
+  font-weight: normal;
+  font-style: italic;
+}
