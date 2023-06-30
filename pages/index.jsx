@@ -24,8 +24,8 @@ const Home = () => {
 
   const { data: user } = useGetUserQuery()
   const { data: tasks, isLoading } = useGetTasksQuery()
-  const [useStoreTask, { isLoading: creatingTask }] = useStoreTaskMutation()
-  const [useDeleteTask, { isLoading: deletingTask }] = useDeleteTaskMutation()
+  const [storeTask, { isLoading: creatingTask }] = useStoreTaskMutation()
+  const [deleteTask, { isLoading: deletingTask }] = useDeleteTaskMutation()
 
   const dispatch = useDispatch()
 
@@ -46,7 +46,7 @@ const Home = () => {
 
     !isDeleteAction ?
       setOpenModal(true) :
-      await useDeleteTask(task)
+      await deleteTask(task)
   }
 
   const handleValueChange = (event) => {
@@ -63,7 +63,7 @@ const Home = () => {
   const handleCreateOrEdit = async () => {
     if (!activeTask?.title) return;
 
-    await useStoreTask({
+    await storeTask({
       ...activeTask,
       action: (activeTask?.id ? 'update' : 'create')
     })
